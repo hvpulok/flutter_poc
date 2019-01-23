@@ -13,7 +13,9 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.indigo,
           primaryColor: Colors.indigo,
           accentColor: Colors.blueAccent),
-      home: HomePage(title: 'Phoenix Flutter POC'),
+      initialRoute: '/',
+      routes: {'/': (context) => HomePage()},
+      // home: HomePage(title: 'Phoenix Flutter POC'),
     );
   }
 }
