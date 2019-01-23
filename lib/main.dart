@@ -10,9 +10,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.indigo,
-      ),
+          primarySwatch: Colors.indigo,
+          primaryColor: Colors.indigo,
+          accentColor: Colors.blueAccent),
       home: HomePage(title: 'Phoenix Flutter POC'),
     );
   }
 }
+
+// TODOS:
+// - Add drawer
+// - Add bottom navbar
