@@ -52,7 +52,15 @@ class ActionCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(4.0),
       child: RaisedButton(
-          onPressed: () {},
+          onPressed: () {
+            final snackBar = SnackBar(
+              content: Text('You clicked $label!'),
+            );
+
+            // Find the Scaffold in the Widget tree and use it to show a SnackBar!
+            Scaffold.of(context).removeCurrentSnackBar();
+            Scaffold.of(context).showSnackBar(snackBar);
+          },
           color: Colors.blueGrey[50],
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
