@@ -22,3 +22,5 @@ samples, guidance on mobile development, and a full API reference.
   - Repo: https://pub.dartlang.org/
 - Installed fontawesome: https://pub.dartlang.org/packages/font_awesome_flutter
 - Flutter color from Hex
+- Assets management
+- Device usb debugging
