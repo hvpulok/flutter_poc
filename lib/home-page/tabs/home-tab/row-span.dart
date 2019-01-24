@@ -9,45 +9,61 @@ class RowSpan extends StatelessWidget {
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: <Widget>[
-          Card(
-            child: Container(
-              width: 160.0,
-              color: Colors.blueGrey[50],
-              child: Icon(Icons.assignment_ind,
-                  size: 75.0, color: Colors.blueGrey),
-            ),
+          ActionCard(
+            icon: Icons.insert_chart,
+            label: 'Account Stats',
+            iconColor: Colors.blue,
           ),
-          Card(
-            child: Container(
-              width: 160.0,
-              color: Colors.blueGrey[50],
-              child:
-                  Icon(Icons.insert_chart, size: 100.0, color: Colors.orange),
-            ),
+          ActionCard(
+            icon: Icons.attach_money,
+            label: 'Balance',
+            iconColor: Colors.green,
           ),
-          Card(
-            child: Container(
-              width: 160.0,
-              color: Colors.blueGrey[50],
-              child: Icon(Icons.attach_money, size: 100.0, color: Colors.green),
-            ),
+          ActionCard(
+            icon: Icons.assignment_ind,
+            label: 'Profile',
           ),
-          Card(
-            child: Container(
-              width: 160.0,
-              color: Colors.blueGrey[50],
-              child: Icon(Icons.chat, size: 100.0, color: Colors.deepPurple),
-            ),
+          ActionCard(
+            icon: Icons.chat,
+            label: 'Chat',
+            iconColor: Colors.orange,
           ),
-          Card(
-            child: Container(
-              width: 160.0,
-              color: Colors.blueGrey[50],
-              child: Icon(Icons.help, size: 100.0, color: Colors.black12),
-            ),
+          ActionCard(
+            icon: Icons.help,
+            label: 'Help',
+            iconColor: Colors.black12,
           ),
         ],
       ),
     );
+  }
+}
+
+class ActionCard extends StatelessWidget {
+  ActionCard(
+      {Key key, this.icon, this.label, this.iconColor = Colors.blueGrey});
+
+  final IconData icon;
+  final String label;
+  final Color iconColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+        color: Colors.blueGrey[50],
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Container(
+              width: 140.0,
+              child: Icon(icon, size: 75.0, color: iconColor),
+            ),
+            Text(
+              label,
+              style: TextStyle(color: Colors.black54),
+            )
+          ],
+        ));
   }
 }
