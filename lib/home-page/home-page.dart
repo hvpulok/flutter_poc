@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import './tabs/home.dart' as _firstTab;
-import './tabs/dashboard.dart' as _secondTab;
-import './tabs/settings.dart' as _thirdTab;
+import './tabs/home.dart';
+import './tabs/dashboard.dart';
+import './tabs/settings.dart';
 
 class HomePage extends StatelessWidget {
   @override
-  Widget build(BuildContext context) => new Tabs();
+  Widget build(BuildContext context) => HomeTabs();
 }
 
-class Tabs extends StatefulWidget {
+class HomeTabs extends StatefulWidget {
   @override
-  TabsState createState() => new TabsState();
+  HomeTabsState createState() => HomeTabsState();
 }
 
-class TabsState extends State<Tabs> {
+class HomeTabsState extends State<HomeTabs> {
   PageController _tabController;
 
   var _title_app = null;
@@ -23,7 +23,7 @@ class TabsState extends State<Tabs> {
   @override
   void initState() {
     super.initState();
-    _tabController = new PageController();
+    _tabController = PageController();
     this._title_app = TabItems[0].title;
   }
 
@@ -34,13 +34,13 @@ class TabsState extends State<Tabs> {
   }
 
   @override
-  Widget build(BuildContext context) => new Scaffold(
+  Widget build(BuildContext context) => Scaffold(
 
       //App Bar
-      appBar: new AppBar(
-        title: new Text(
+      appBar: AppBar(
+        title: Text(
           _title_app,
-          style: new TextStyle(
+          style: TextStyle(
             fontSize:
                 Theme.of(context).platform == TargetPlatform.iOS ? 17.0 : 20.0,
           ),
@@ -49,77 +49,74 @@ class TabsState extends State<Tabs> {
       ),
 
       //Content of tabs
-      body: new PageView(
+      body: PageView(
         controller: _tabController,
         onPageChanged: onTabChanged,
-        children: <Widget>[
-          new _firstTab.Home(),
-          new _secondTab.Dashboard(),
-          new _thirdTab.Settings()
-        ],
+        children: <Widget>[Home(), Dashboard(), Settings()],
+        scrollDirection: Axis.horizontal,
       ),
 
       //Tabs
       bottomNavigationBar: Theme.of(context).platform == TargetPlatform.iOS
-          ? new CupertinoTabBar(
+          ? CupertinoTabBar(
               activeColor: Colors.pinkAccent,
               currentIndex: _tab,
               onTap: onTap,
               items: TabItems.map((TabItem) {
-                return new BottomNavigationBarItem(
-                  title: new Text(TabItem.title),
-                  icon: new Icon(TabItem.icon),
+                return BottomNavigationBarItem(
+                  title: Text(TabItem.title),
+                  icon: Icon(TabItem.icon),
                 );
               }).toList(),
             )
-          : new BottomNavigationBar(
+          : BottomNavigationBar(
               currentIndex: _tab,
               onTap: onTap,
               items: TabItems.map((TabItem) {
-                return new BottomNavigationBarItem(
-                  title: new Text(TabItem.title),
-                  icon: new Icon(TabItem.icon),
+                return BottomNavigationBarItem(
+                  title: Text(TabItem.title),
+                  icon: Icon(TabItem.icon),
                 );
               }).toList(),
             ),
 
       //Drawer
-      drawer: new Drawer(
-          child: new ListView(
+      drawer: Drawer(
+          child: ListView(
         children: <Widget>[
-          new Container(
+          Container(
             height: 120.0,
-            child: new DrawerHeader(
-              padding: new EdgeInsets.all(0.0),
-              decoration: new BoxDecoration(
-                color: new Color(0xFFECEFF1),
+            child: DrawerHeader(
+              padding: EdgeInsets.all(0.0),
+              decoration: BoxDecoration(
+                color: Color(0xFFECEFF1),
               ),
-              child: new Center(
-                child: new FlutterLogo(
+              child: Center(
+                child: FlutterLogo(
                   colors: Colors.pink,
                   size: 54.0,
                 ),
               ),
             ),
           ),
-          new ListTile(
-              leading: new Icon(Icons.chat),
-              title: new Text('Support'),
+          ListTile(
+              leading: Icon(Icons.chat),
+              title: Text('Support'),
               onTap: () {
                 Navigator.pop(context);
                 Navigator.of(context).pushNamed('/support');
               }),
-          new ListTile(
-              leading: new Icon(Icons.info),
-              title: new Text('About'),
+          ListTile(
+              leading: Icon(Icons.info),
+              title: Text('About'),
               onTap: () {
                 Navigator.pop(context);
                 Navigator.of(context).pushNamed('/about');
               }),
-          new Divider(),
-          new ListTile(
-              leading: new Icon(Icons.exit_to_app),
-              title: new Text('Sign Out'),
+          Divider(),
+          ListTile(
+              leading: Icon(Icons.exit_to_app),
+              title: Text('Sign Out'),
               onTap: () {
                 Navigator.pop(context);
               }),
