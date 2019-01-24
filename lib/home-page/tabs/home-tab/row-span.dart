@@ -4,31 +4,47 @@ class RowSpan extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 20.0),
-      height: 200.0,
+      margin: EdgeInsets.symmetric(vertical: 0.0),
+      height: 150.0,
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: <Widget>[
-          Container(
-            width: 160.0,
-            color: Colors.blueGrey,
-            child: Icon(Icons.home, size: 150.0, color: Colors.black12),
+          Card(
+            child: Container(
+              width: 160.0,
+              color: Colors.blueGrey[50],
+              child: Icon(Icons.assignment_ind,
+                  size: 75.0, color: Colors.blueGrey),
+            ),
           ),
-          Container(
-            width: 160.0,
-            color: Colors.blue,
+          Card(
+            child: Container(
+              width: 160.0,
+              color: Colors.blueGrey[50],
+              child:
+                  Icon(Icons.insert_chart, size: 100.0, color: Colors.orange),
+            ),
           ),
-          Container(
-            width: 160.0,
-            color: Colors.green,
+          Card(
+            child: Container(
+              width: 160.0,
+              color: Colors.blueGrey[50],
+              child: Icon(Icons.attach_money, size: 100.0, color: Colors.green),
+            ),
           ),
-          Container(
-            width: 160.0,
-            color: Colors.yellow,
+          Card(
+            child: Container(
+              width: 160.0,
+              color: Colors.blueGrey[50],
+              child: Icon(Icons.chat, size: 100.0, color: Colors.deepPurple),
+            ),
           ),
-          Container(
-            width: 160.0,
-            color: Colors.orange,
+          Card(
+            child: Container(
+              width: 160.0,
+              color: Colors.blueGrey[50],
+              child: Icon(Icons.help, size: 100.0, color: Colors.black12),
+            ),
           ),
         ],
       ),
