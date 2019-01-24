@@ -8,12 +8,12 @@ import './login-page/login_page.dart';
 void main() => runApp(new MaterialApp(
     title: 'Flutter Starter',
     theme: new ThemeData(
-        primarySwatch: Colors.indigo,
+        primarySwatch: Colors.purple,
         scaffoldBackgroundColor: Colors.white,
         primaryColor: Colors.indigo,
         accentColor: Colors.pinkAccent,
         backgroundColor: Colors.white),
-    initialRoute: '/',
+    initialRoute: '/login',
     routes: appRoutes));
 
 Map<String, WidgetBuilder> appRoutes = <String, WidgetBuilder>{

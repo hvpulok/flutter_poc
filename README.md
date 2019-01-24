@@ -21,4 +21,4 @@ samples, guidance on mobile development, and a full API reference.
   - vscode will auto install
   - Repo: https://pub.dartlang.org/
 - Installed fontawesome: https://pub.dartlang.org/packages/font_awesome_flutter
-- 
+- Flutter color from Hex
