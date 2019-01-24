@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import './tabs/home.dart';
+import './tabs/home-tab/home-tab.dart';
 import './tabs/dashboard.dart';
 import './tabs/settings.dart';
 import './drawer.dart';
@@ -53,7 +53,7 @@ class HomeTabsState extends State<HomeTabs> {
       body: PageView(
         controller: _tabController,
         onPageChanged: onTabChanged,
-        children: <Widget>[Home(), Dashboard(), Settings()],
+        children: <Widget>[HomeTab(), Dashboard(), Settings()],
         scrollDirection: Axis.horizontal,
       ),
 
