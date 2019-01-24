@@ -85,7 +85,10 @@ class HomeTabsState extends State<HomeTabs> {
       drawer: HomeDrawer());
 
   void onTap(int tab) {
-    _tabController.jumpToPage(tab);
+    // _tabController.jumpToPage(tab);
+    _tabController
+      ..animateToPage(tab,
+          duration: Duration(milliseconds: 500), curve: Curves.decelerate);
   }
 
   void onTabChanged(int tab) {
