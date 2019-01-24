@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import './tabs/home-tab/home-tab.dart';
-import './tabs/dashboard.dart';
-import './tabs/settings.dart';
+import './tabs/dashboard-tab/dashboard-tab.dart';
+import './tabs/settings-tab/settings-tab.dart';
 import './drawer.dart';
 
 class HomePage extends StatelessWidget {
@@ -53,7 +53,7 @@ class HomeTabsState extends State<HomeTabs> {
       body: PageView(
         controller: _tabController,
         onPageChanged: onTabChanged,
-        children: <Widget>[HomeTab(), Dashboard(), Settings()],
+        children: <Widget>[HomeTab(), DashboardTab(), SettingsTab()],
         scrollDirection: Axis.horizontal,
       ),
 
