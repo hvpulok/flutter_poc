@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class About extends StatelessWidget {
+class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => new Scaffold(
         //App Bar
