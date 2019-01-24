@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import './tabs/home.dart';
 import './tabs/dashboard.dart';
 import './tabs/settings.dart';
+import './drawer.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -81,47 +82,7 @@ class HomeTabsState extends State<HomeTabs> {
             ),
 
       //Drawer
-      drawer: Drawer(
-          child: ListView(
-        children: <Widget>[
-          Container(
-            height: 120.0,
-            child: DrawerHeader(
-              padding: EdgeInsets.all(0.0),
-              decoration: BoxDecoration(
-                color: Color(0xFFECEFF1),
-              ),
-              child: Center(
-                child: FlutterLogo(
-                  colors: Colors.pink,
-                  size: 54.0,
-                ),
-              ),
-            ),
-          ),
-          ListTile(
-              leading: Icon(Icons.chat),
-              title: Text('Support'),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.of(context).pushNamed('/support');
-              }),
-          ListTile(
-              leading: Icon(Icons.info),
-              title: Text('About'),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.of(context).pushNamed('/about');
-              }),
-          Divider(),
-          ListTile(
-              leading: Icon(Icons.exit_to_app),
-              title: Text('Sign Out'),
-              onTap: () {
-                Navigator.pop(context);
-              }),
-        ],
-      )));
+      drawer: HomeDrawer());
 
   void onTap(int tab) {
     _tabController.jumpToPage(tab);
