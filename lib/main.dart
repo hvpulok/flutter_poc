@@ -13,9 +13,9 @@ void main() => runApp(new MaterialApp(
         accentColor: Colors.pinkAccent,
         backgroundColor: Colors.white),
     initialRoute: '/',
-    routes: routes));
+    routes: appRoutes));
 
-var routes = <String, WidgetBuilder>{
+Map<String, WidgetBuilder> appRoutes = <String, WidgetBuilder>{
   '/': (BuildContext context) => HomePage(),
   '/about': (BuildContext context) => AboutPage(),
   '/support': (BuildContext context) => SupportPage(),
