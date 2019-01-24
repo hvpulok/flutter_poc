@@ -69,12 +69,12 @@ class _LoginPageState extends State<LoginPage>
               mainAxisSize: MainAxisSize.max,
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.only(top: 75.0),
+                  padding: EdgeInsets.only(top: 20.0),
                   child: new Image(
-                      width: 250.0,
-                      height: 191.0,
+                      width: 150.0,
+                      height: 150.0,
                       fit: BoxFit.fill,
-                      image: new AssetImage('assets/img/login_logo.png')),
+                      image: new AssetImage('assets/img/login_logo2.png')),
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 20.0),
@@ -153,6 +153,8 @@ class _LoginPageState extends State<LoginPage>
       backgroundColor: Colors.blue,
       duration: Duration(seconds: 3),
     ));
+    // Navigator.pop(context);
+    Navigator.of(context).pushNamed('/');
   }
 
   Widget _buildMenuBar(BuildContext context) {
@@ -174,7 +176,7 @@ class _LoginPageState extends State<LoginPage>
                 highlightColor: Colors.transparent,
                 onPressed: _onSignInButtonPress,
                 child: Text(
-                  "Existing",
+                  "Existing User",
                   style: TextStyle(
                       color: left,
                       fontSize: 16.0,
@@ -189,7 +191,7 @@ class _LoginPageState extends State<LoginPage>
                 highlightColor: Colors.transparent,
                 onPressed: _onSignUpButtonPress,
                 child: Text(
-                  "New",
+                  "New User",
                   style: TextStyle(
                       color: right,
                       fontSize: 16.0,
