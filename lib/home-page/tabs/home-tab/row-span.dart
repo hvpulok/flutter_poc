@@ -49,21 +49,25 @@ class ActionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-        color: Colors.blueGrey[50],
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            Container(
-              width: 140.0,
-              child: Icon(icon, size: 75.0, color: iconColor),
-            ),
-            Text(
-              label,
-              style: TextStyle(color: Colors.black54),
-            )
-          ],
-        ));
+    return Padding(
+      padding: const EdgeInsets.all(4.0),
+      child: RaisedButton(
+          onPressed: () {},
+          color: Colors.blueGrey[50],
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              Container(
+                width: 130.0,
+                child: Icon(icon, size: 75.0, color: iconColor),
+              ),
+              Text(
+                label,
+                style: TextStyle(color: Colors.black54),
+              )
+            ],
+          )),
+    );
   }
 }
