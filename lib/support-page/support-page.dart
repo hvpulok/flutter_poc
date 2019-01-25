@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './dismissable-cards.dart';
 
 class SupportPage extends StatelessWidget {
   @override
@@ -18,15 +19,6 @@ class SupportPage extends StatelessWidget {
         ),
 
         //Content of tabs
-        body: new PageView(
-          children: <Widget>[
-            new Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                new Text('Support page content'),
-              ],
-            )
-          ],
-        ),
+        body: DismissableCards(),
       );
 }
