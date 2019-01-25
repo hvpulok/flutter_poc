@@ -24,3 +24,4 @@ samples, guidance on mobile development, and a full API reference.
 - Flutter color from Hex
 - Assets management
 - Device usb debugging
+- Camera plugins usage
