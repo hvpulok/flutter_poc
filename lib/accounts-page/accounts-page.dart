@@ -15,6 +15,7 @@ class _AccountsPageState extends State<AccountsPage> {
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
             return <Widget>[
               SliverAppBar(
+                backgroundColor: Colors.blue,
                 expandedHeight: 200.0,
                 floating: false,
                 pinned: true,
@@ -67,7 +68,7 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
     return new Material(
-      color: Colors.indigo,
+      color: Colors.blue,
       child: _tabBar,
     );
   }
