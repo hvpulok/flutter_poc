@@ -31,7 +31,16 @@ class StickyHeaderDemo extends StatelessWidget {
                   leading: new CircleAvatar(
                     child: new Text('$sliverIndex'),
                   ),
-                  title: new Text('List tile #$i'),
+                  title: Container(
+                    child: Row(
+                      children: <Widget>[
+                        new Text('List $i'),
+                        Expanded(
+                          child: new TextField(),
+                        )
+                      ],
+                    ),
+                  ),
                 ),
             childCount: 4,
           ),
