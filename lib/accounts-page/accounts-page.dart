@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class MainCollapsingToolbar extends StatefulWidget {
+class AccountsPage extends StatefulWidget {
   @override
-  _MainCollapsingToolbarState createState() => _MainCollapsingToolbarState();
+  _AccountsPageState createState() => _AccountsPageState();
 }
 
-class _MainCollapsingToolbarState extends State<MainCollapsingToolbar> {
+class _AccountsPageState extends State<AccountsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

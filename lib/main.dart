@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import './collapsing_toolbar/main_collapsing_toolbar.dart';
+import './accounts-page/accounts-page.dart';
 import './home-page/home-page.dart';
 import './about-page/about-page.dart';
 import './support-page/support-page.dart';
@@ -20,7 +20,7 @@ void main() => runApp(new MaterialApp(
 
 Map<String, WidgetBuilder> appRoutes = <String, WidgetBuilder>{
   '/': (BuildContext context) => HomePage(),
-  '/accounts': (BuildContext context) => MainCollapsingToolbar(),
+  '/accounts': (BuildContext context) => AccountsPage(),
   '/about': (BuildContext context) => AboutPage(),
   '/support': (BuildContext context) => SupportPage(),
   '/login': (BuildContext context) => LoginPage(),
