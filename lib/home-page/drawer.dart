@@ -22,6 +22,13 @@ class HomeDrawer extends StatelessWidget {
           ),
         ),
         ListTile(
+            leading: Icon(Icons.home),
+            title: Text('Home'),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.of(context).pushNamed('/');
+            }),
+        ListTile(
             leading: Icon(Icons.chat),
             title: Text('Support'),
             onTap: () {
