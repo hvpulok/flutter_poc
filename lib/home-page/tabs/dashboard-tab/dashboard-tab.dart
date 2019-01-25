@@ -4,18 +4,59 @@ import 'package:flutter_poc/shared/battery.dart';
 
 class DashboardTab extends StatelessWidget {
   @override
-  Widget build(BuildContext context) => new Container(
-        child: new Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            BatteryLevel(),
-            CameraButton(),
-            new Text(
-              'Plugins Dashboard',
-              style: TextStyle(fontSize: 20),
-            )
-          ],
-        ),
+  Widget build(BuildContext context) => GridView.count(
+        padding: EdgeInsets.all(10),
+        crossAxisCount: 2,
+        crossAxisSpacing: 15,
+        mainAxisSpacing: 15,
+        children: <Widget>[
+          BatteryLevel(),
+          CameraButton(),
+          RaisedButton(
+            color: Colors.purple,
+            child: Icon(
+              Icons.place,
+              size: 130,
+              color: Colors.white24,
+            ),
+            onPressed: () {},
+          ),
+          RaisedButton(
+            color: Colors.purple,
+            child: Icon(
+              Icons.fingerprint,
+              size: 130,
+              color: Colors.white24,
+            ),
+            onPressed: () {},
+          ),
+          RaisedButton(
+            color: Colors.purple,
+            child: Icon(
+              Icons.mic,
+              size: 130,
+              color: Colors.white24,
+            ),
+            onPressed: () {},
+          ),
+          RaisedButton(
+            color: Colors.purple,
+            child: Icon(
+              Icons.bluetooth_audio,
+              size: 130,
+              color: Colors.white24,
+            ),
+            onPressed: () {},
+          ),
+          RaisedButton(
+            color: Colors.purple,
+            child: Icon(
+              Icons.phone,
+              size: 130,
+              color: Colors.white24,
+            ),
+            onPressed: () {},
+          )
+        ],
       );
 }

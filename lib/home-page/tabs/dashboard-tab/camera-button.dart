@@ -7,13 +7,13 @@ class CameraButton extends StatelessWidget {
       onPressed: () {
         Navigator.of(context).pushNamed('/camera');
       },
-      color: Colors.pinkAccent,
+      color: Colors.purple,
       child: Stack(
         children: <Widget>[
           Container(
             width: 130.0,
             height: 130,
-            child: Icon(Icons.camera, size: 75.0, color: Colors.white24),
+            child: Icon(Icons.camera_alt, size: 130.0, color: Colors.white24),
           ),
           SizedBox(
             width: 130.0,

@@ -16,7 +16,7 @@ class _BatteryLevelState extends State<BatteryLevel> {
   Widget build(BuildContext context) {
     return RaisedButton(
       onPressed: _getBatteryLevel,
-      color: Colors.pinkAccent,
+      color: Colors.purple,
       child: Stack(
         alignment: AlignmentDirectional.center,
         children: <Widget>[
