@@ -5,7 +5,7 @@ import './home-page/home-page.dart';
 import './about-page/about-page.dart';
 import './support-page/support-page.dart';
 import './login-page/login_page.dart';
-import './home-page/tabs/dashboard-tab/camera.dart';
+import './shared/camera.dart';
 
 void main() => runApp(new MaterialApp(
     title: 'Flutter Starter',

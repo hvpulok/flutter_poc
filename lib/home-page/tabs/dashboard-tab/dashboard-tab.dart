@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_poc/shared/battery.dart';
 
 class DashboardTab extends StatelessWidget {
   @override
@@ -7,6 +8,7 @@ class DashboardTab extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
+            BatteryLevel(),
             RaisedButton(
               onPressed: () {
                 Navigator.of(context).pushNamed('/camera');
