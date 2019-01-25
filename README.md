@@ -25,3 +25,6 @@ samples, guidance on mobile development, and a full API reference.
 - Assets management
 - Device usb debugging
 - Camera plugins usage
+- Debugging
+- Profiling
+- 
