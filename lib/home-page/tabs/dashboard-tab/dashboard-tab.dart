@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './camera-button.dart';
 import 'package:flutter_poc/shared/battery.dart';
 
 class DashboardTab extends StatelessWidget {
@@ -9,31 +10,7 @@ class DashboardTab extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             BatteryLevel(),
-            RaisedButton(
-              onPressed: () {
-                Navigator.of(context).pushNamed('/camera');
-              },
-              color: Colors.pinkAccent,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  Container(
-                    width: 130.0,
-                    height: 130,
-                    child:
-                        Icon(Icons.camera, size: 75.0, color: Colors.white70),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 8.0),
-                    child: Text(
-                      'Camera',
-                      style: TextStyle(color: Colors.white70, fontSize: 16),
-                    ),
-                  )
-                ],
-              ),
-            ),
+            CameraButton(),
             new Text(
               'Plugins Dashboard',
               style: TextStyle(fontSize: 20),

@@ -10,22 +10,32 @@ class BatteryLevel extends StatefulWidget {
 
 class _BatteryLevelState extends State<BatteryLevel> {
   static const platform = const MethodChannel('phoenix.flutter.io/battery');
-  String _batteryLevel = 'Unknown battery level.';
+  String _batteryLevel = '?';
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            RaisedButton(
-              child: Text('Get Battery Level'),
-              onPressed: _getBatteryLevel,
+    return RaisedButton(
+      onPressed: _getBatteryLevel,
+      color: Colors.pinkAccent,
+      child: Stack(
+        alignment: AlignmentDirectional.center,
+        children: <Widget>[
+          SizedBox(
+            width: 130.0,
+            height: 130,
+            child: Icon(Icons.battery_std, size: 130.0, color: Colors.white24),
+          ),
+          SizedBox(
+            width: 130.0,
+            height: 130.0,
+            child: Center(
+              child: Text(
+                _batteryLevel,
+                style: TextStyle(color: Colors.white70, fontSize: 25),
+              ),
             ),
-            Text(_batteryLevel),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -35,9 +45,9 @@ class _BatteryLevelState extends State<BatteryLevel> {
     String batteryLevel;
     try {
       final int result = await platform.invokeMethod('getBatteryLevel');
-      batteryLevel = 'Battery level at $result % .';
+      batteryLevel = '$result%';
     } on PlatformException catch (e) {
-      batteryLevel = "Failed to get battery level: '${e.message}'.";
+      batteryLevel = "ERR!";
     }
 
     setState(() {
