@@ -20,13 +20,14 @@ class _AccountsPageState extends State<AccountsPage> {
                 pinned: true,
                 flexibleSpace: FlexibleSpaceBar(
                     centerTitle: true,
-                    title: Text("Collapsing Toolbar",
+                    collapseMode: CollapseMode.parallax,
+                    title: Text("Account Balance",
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 16.0,
                         )),
-                    background: Image.network(
-                      "https://images.pexels.com/photos/396547/pexels-photo-396547.jpeg?auto=compress&cs=tinysrgb&h=350",
+                    background: Image.asset(
+                      "assets/img/banner1.jpg",
                       fit: BoxFit.cover,
                     )),
               ),
