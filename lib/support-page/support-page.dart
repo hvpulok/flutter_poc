@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../shared/dismissable-cards.dart';
+import './message-box.dart';
 
 class SupportPage extends StatelessWidget {
   @override
@@ -19,6 +19,6 @@ class SupportPage extends StatelessWidget {
         ),
 
         //Content of tabs
-        body: DismissableCards(),
+        body: MessageBox(),
       );
 }
