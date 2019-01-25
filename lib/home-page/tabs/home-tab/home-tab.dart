@@ -9,7 +9,7 @@ class HomeTab extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           RowSpan(),
-          Icon(Icons.home, size: 150.0, color: Colors.black12),
+          Icon(Icons.home, size: 100.0, color: Colors.black12),
           Text("Home tab content")
         ],
       ));

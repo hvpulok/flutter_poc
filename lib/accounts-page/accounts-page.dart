@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../shared/dismissable-cards.dart';
 
 class AccountsPage extends StatefulWidget {
   @override
@@ -19,13 +20,14 @@ class _AccountsPageState extends State<AccountsPage> {
                 expandedHeight: 200.0,
                 floating: false,
                 pinned: true,
+                elevation: 0,
                 flexibleSpace: FlexibleSpaceBar(
-                    centerTitle: true,
+                    centerTitle: false,
                     collapseMode: CollapseMode.parallax,
                     title: Text("Account Balance",
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 16.0,
+                          fontSize: 20.0,
                         )),
                     background: Image.asset(
                       "assets/img/banner1.jpg",
@@ -42,11 +44,12 @@ class _AccountsPageState extends State<AccountsPage> {
                   ),
                 ),
                 pinned: true,
+                floating: false,
               ),
             ];
           },
           body: Center(
-            child: Text("Sample text"),
+            child: DismissableCards(),
           ),
         ),
       ),

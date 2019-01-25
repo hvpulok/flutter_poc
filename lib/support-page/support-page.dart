@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './dismissable-cards.dart';
+import '../shared/dismissable-cards.dart';
 
 class SupportPage extends StatelessWidget {
   @override
