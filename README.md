@@ -27,4 +27,5 @@ samples, guidance on mobile development, and a full API reference.
 - Camera plugins usage
 - Debugging
 - Profiling
-- 
+- Orientation locking
+- Orientation based layout
