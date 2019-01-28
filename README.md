@@ -75,3 +75,11 @@
 - Many implementation algorithm is available
 - Implementation was easy with support of flutter docs, community blogs & Stackoverflow   
 <img src="./snapshots/bottom_sticky_component_keyboard.gif" alt="sticky header" width="300"/>
+
+
+# TODOS:
+- 3rd Party Plugins
+- Custom animation
+- Modal navigation
+- Bottom sheet
+- Mapview (OpenGL)
