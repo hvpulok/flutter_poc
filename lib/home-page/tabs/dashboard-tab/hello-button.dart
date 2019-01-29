@@ -3,19 +3,19 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class BatteryLevel extends StatefulWidget {
+class HelloPlugin extends StatefulWidget {
   @override
-  _BatteryLevelState createState() => _BatteryLevelState();
+  _HelloPluginState createState() => _HelloPluginState();
 }
 
-class _BatteryLevelState extends State<BatteryLevel> {
+class _HelloPluginState extends State<HelloPlugin> {
   static const platform = const MethodChannel('phoenix.flutter.io/info');
-  String _batteryLevel = '?';
+  String _message = '?';
 
   @override
   Widget build(BuildContext context) {
     return RaisedButton(
-      onPressed: _getBatteryLevel,
+      onPressed: _sayHelloToNative,
       color: Colors.purple,
       child: Stack(
         alignment: AlignmentDirectional.center,
@@ -23,14 +23,14 @@ class _BatteryLevelState extends State<BatteryLevel> {
           SizedBox(
             width: 130.0,
             height: 130,
-            child: Icon(Icons.battery_std, size: 130.0, color: Colors.white24),
+            child: Icon(Icons.message, size: 130.0, color: Colors.white10),
           ),
           SizedBox(
             width: 130.0,
             height: 130.0,
             child: Center(
               child: Text(
-                _batteryLevel,
+                _message,
                 style: TextStyle(color: Colors.white70, fontSize: 25),
               ),
             ),
@@ -41,17 +41,17 @@ class _BatteryLevelState extends State<BatteryLevel> {
   }
 
   // Get battery level.
-  Future<void> _getBatteryLevel() async {
-    String batteryLevel;
+  Future<void> _sayHelloToNative() async {
+    String message;
     try {
-      final int result = await platform.invokeMethod('getBatteryLevel');
-      batteryLevel = '$result%';
+      final String result = await platform.invokeMethod('hello');
+      message = result;
     } on PlatformException catch (e) {
-      batteryLevel = "ERR!";
+      message = "ERR!";
     }
 
     setState(() {
-      _batteryLevel = batteryLevel;
+      _message = message;
     });
   }
 }

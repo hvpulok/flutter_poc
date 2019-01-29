@@ -18,29 +18,34 @@ import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
 
 public class MainActivity extends FlutterActivity {
-    private static final String CHANNEL = "phoenix.flutter.io/battery";
+    private static final String CHANNEL = "phoenix.flutter.io/info";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         GeneratedPluginRegistrant.registerWith(this);
-        new MethodChannel(getFlutterView(), CHANNEL).setMethodCallHandler(
-                new MethodCallHandler() {
-                    @Override
-                    public void onMethodCall(MethodCall call, Result result) {
-                        if (call.method.equals("getBatteryLevel")) {
-                            int batteryLevel = getBatteryLevel();
 
-                            if (batteryLevel != -1) {
-                                result.success(batteryLevel);
-                            } else {
-                                result.error("UNAVAILABLE", "Battery level not available.", null);
-                            }
-                        } else {
-                            result.notImplemented();
-                        }
+        new MethodChannel(getFlutterView(), CHANNEL).setMethodCallHandler(new MethodCallHandler() {
+            @Override
+            public void onMethodCall(MethodCall call, Result result) {
+                // start: Battery plugin code starts here
+                if (call.method.equals("getBatteryLevel")) {
+                    int batteryLevel = getBatteryLevel();
+
+                    if (batteryLevel != -1) {
+                        result.success(batteryLevel);
+                    } else {
+                        result.error("UNAVAILABLE", "Battery level not available.", null);
                     }
-                });
+                }
+                // End: Battery plugin code starts here
+                else if (call.method.equals("hello")) {
+                    result.success("Hi from Android");
+                } else {
+                    result.notImplemented();
+                }
+            }
+        });
     }
 
     private int getBatteryLevel() {
@@ -49,10 +54,10 @@ public class MainActivity extends FlutterActivity {
             BatteryManager batteryManager = (BatteryManager) getSystemService(BATTERY_SERVICE);
             batteryLevel = batteryManager.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
         } else {
-            Intent intent = new ContextWrapper(getApplicationContext()).
-                    registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
-            batteryLevel = (intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1) * 100) /
-                    intent.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
+            Intent intent = new ContextWrapper(getApplicationContext()).registerReceiver(null,
+                    new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+            batteryLevel = (intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1) * 100)
+                    / intent.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
         }
 
         return batteryLevel;
