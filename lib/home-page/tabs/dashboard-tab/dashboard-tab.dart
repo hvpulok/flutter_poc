@@ -15,7 +15,7 @@ class DashboardTab extends StatelessWidget {
           children: <Widget>[
             BatteryLevel(),
             CameraButton(),
-            HelloPlugin(),
+            HelloButton(),
             RaisedButton(
               color: Colors.purple,
               child: Icon(

@@ -1,15 +1,13 @@
+import 'package:flutter/material.dart';
+import './../../../shared/hello-plugin.dart';
 import 'dart:async';
 
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-
-class HelloPlugin extends StatefulWidget {
+class HelloButton extends StatefulWidget {
   @override
-  _HelloPluginState createState() => _HelloPluginState();
+  _HelloButtonState createState() => _HelloButtonState();
 }
 
-class _HelloPluginState extends State<HelloPlugin> {
-  static const platform = const MethodChannel('phoenix.flutter.io/info');
+class _HelloButtonState extends State<HelloButton> {
   String _message = '?';
 
   @override
@@ -44,9 +42,9 @@ class _HelloPluginState extends State<HelloPlugin> {
   Future<void> _sayHelloToNative() async {
     String message;
     try {
-      final String result = await platform.invokeMethod('hello');
+      final String result = await HelloPluginDemo.sayHelloToNative();
       message = result;
-    } on PlatformException catch (e) {
+    } catch (e) {
       message = "ERR!";
     }
 

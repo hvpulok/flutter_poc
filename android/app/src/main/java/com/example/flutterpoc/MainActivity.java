@@ -40,7 +40,7 @@ public class MainActivity extends FlutterActivity {
                 }
                 // End: Battery plugin code starts here
                 else if (call.method.equals("hello")) {
-                    result.success("Hi from Android");
+                    result.success("Hi from Android Native");
                 } else {
                     result.notImplemented();
                 }
