@@ -1,15 +1,14 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import './../../../shared/battery-plugin.dart';
 
-class BatteryLevel extends StatefulWidget {
+class BatteryButton extends StatefulWidget {
   @override
-  _BatteryLevelState createState() => _BatteryLevelState();
+  _BatteryButtonState createState() => _BatteryButtonState();
 }
 
-class _BatteryLevelState extends State<BatteryLevel> {
-  static const platform = const MethodChannel('phoenix.flutter.io/battery');
+class _BatteryButtonState extends State<BatteryButton> {
   String _batteryLevel = '?';
 
   @override
@@ -40,18 +39,19 @@ class _BatteryLevelState extends State<BatteryLevel> {
     );
   }
 
-  // Get battery level.
+  // Communicate to Native
   Future<void> _getBatteryLevel() async {
-    String batteryLevel;
+    String message;
     try {
-      final int result = await platform.invokeMethod('getBatteryLevel');
-      batteryLevel = '$result%';
-    } on PlatformException catch (e) {
-      batteryLevel = "ERR!";
+      final String result = await BatteryLevelPlugin.getBatteryLevel();
+      message = result.toString();
+    } catch (e) {
+      print(e);
+      message = "ERR!";
     }
 
     setState(() {
-      _batteryLevel = batteryLevel;
+      _batteryLevel = message;
     });
   }
 }
