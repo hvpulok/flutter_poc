@@ -28,20 +28,21 @@ public class MainActivity extends FlutterActivity {
         new MethodChannel(getFlutterView(), CHANNEL).setMethodCallHandler(new MethodCallHandler() {
             @Override
             public void onMethodCall(MethodCall call, Result result) {
+                if (call.method.equals("hello")) {
+                    result.success("Hi from Android Native");
+                } 
                 // start: Battery plugin code starts here
-                if (call.method.equals("getBatteryLevel")) {
+                else if (call.method.equals("getBatteryLevel")) {
                     int batteryLevel = getBatteryLevel();
 
                     if (batteryLevel != -1) {
-                        result.success(batteryLevel);
+                        result.success(Integer.toString(batteryLevel) + "%");
                     } else {
                         result.error("UNAVAILABLE", "Battery level not available.", null);
                     }
                 }
                 // End: Battery plugin code starts here
-                else if (call.method.equals("hello")) {
-                    result.success("Hi from Android Native");
-                } else {
+                else {
                     result.notImplemented();
                 }
             }

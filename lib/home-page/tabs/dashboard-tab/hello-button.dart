@@ -38,7 +38,7 @@ class _HelloButtonState extends State<HelloButton> {
     );
   }
 
-  // Get battery level.
+  // Communicate to Native
   Future<void> _sayHelloToNative() async {
     String message;
     try {

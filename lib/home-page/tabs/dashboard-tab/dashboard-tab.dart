@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import './hello-button.dart';
+import './battery-button.dart';
 import './camera-button.dart';
-import 'package:flutter_poc/shared/battery.dart';
 
 class DashboardTab extends StatelessWidget {
   @override
@@ -13,9 +13,9 @@ class DashboardTab extends StatelessWidget {
           crossAxisSpacing: 15,
           mainAxisSpacing: 15,
           children: <Widget>[
-            BatteryLevel(),
-            CameraButton(),
             HelloButton(),
+            BatteryButton(),
+            CameraButton(),
             RaisedButton(
               color: Colors.purple,
               child: Icon(
