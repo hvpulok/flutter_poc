@@ -1,5 +1,6 @@
 package com.example.flutterpoc;
 
+import android.app.Activity;
 import android.os.Bundle;
 
 import io.flutter.app.FlutterActivity;
@@ -15,10 +16,12 @@ import android.content.IntentFilter;
 import android.os.BatteryManager;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
-import android.os.Bundle;
 
 public class MainActivity extends FlutterActivity {
     private static final String CHANNEL = "phoenix.flutter.io/info";
+    public static final String EXTRA_MESSAGE = "com.example.flutterpoc.MESSAGE";
+    public static final String BAR_CODE_SCANNER = "com.example.flutterpoc.BARCODE";
+    public static Result result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +30,11 @@ public class MainActivity extends FlutterActivity {
 
         new MethodChannel(getFlutterView(), CHANNEL).setMethodCallHandler(new MethodCallHandler() {
             @Override
-            public void onMethodCall(MethodCall call, Result result) {
+            public void onMethodCall(MethodCall call, Result _result) {
+                result = _result;
                 if (call.method.equals("hello")) {
                     result.success("Hi from Android Native");
-                } 
+                }
                 // start: Battery plugin code starts here
                 else if (call.method.equals("getBatteryLevel")) {
                     int batteryLevel = getBatteryLevel();
@@ -42,6 +46,10 @@ public class MainActivity extends FlutterActivity {
                     }
                 }
                 // End: Battery plugin code starts here
+                else if (call.method.equals("scanBarcode")) {
+                    sendMessage();
+//                    result.success("Hi scanBarcode");
+                }
                 else {
                     result.notImplemented();
                 }
@@ -62,5 +70,23 @@ public class MainActivity extends FlutterActivity {
         }
 
         return batteryLevel;
+    }
+
+    public void sendMessage(){
+        Intent intent = new Intent(this, DisplayMessageActivity.class);
+        intent.putExtra(BAR_CODE_SCANNER, "Scan Bar Code Please...");
+        this.startActivityForResult(intent,100);
+    }
+
+    @Override
+    public void onActivityResult(int code, int resultCode, Intent data){
+        if (code == 100) {
+            if (resultCode == Activity.RESULT_OK) {
+                String barcode = data.getStringExtra(BAR_CODE_SCANNER);
+                this.result.success(barcode);
+            } else {
+                this.result.success("Scan ERR!");
+            }
+        }
     }
 }
