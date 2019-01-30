@@ -18,10 +18,10 @@ import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 
 public class MainActivity extends FlutterActivity {
+    public static Result result;
     private static final String CHANNEL = "phoenix.flutter.io/info";
     public static final String EXTRA_MESSAGE = "com.example.flutterpoc.MESSAGE";
     public static final String BAR_CODE_SCANNER = "com.example.flutterpoc.BARCODE";
-    public static Result result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,20 +35,11 @@ public class MainActivity extends FlutterActivity {
                 if (call.method.equals("hello")) {
                     result.success("Hi from Android Native");
                 }
-                // start: Battery plugin code starts here
                 else if (call.method.equals("getBatteryLevel")) {
-                    int batteryLevel = getBatteryLevel();
-
-                    if (batteryLevel != -1) {
-                        result.success(Integer.toString(batteryLevel) + "%");
-                    } else {
-                        result.error("UNAVAILABLE", "Battery level not available.", null);
-                    }
+                    getBatteryLevel();
                 }
-                // End: Battery plugin code starts here
                 else if (call.method.equals("scanBarcode")) {
-                    sendMessage();
-//                    result.success("Hi scanBarcode");
+                    scanBarcode();
                 }
                 else {
                     result.notImplemented();
@@ -57,7 +48,7 @@ public class MainActivity extends FlutterActivity {
         });
     }
 
-    private int getBatteryLevel() {
+    private void getBatteryLevel() {
         int batteryLevel = -1;
         if (VERSION.SDK_INT >= VERSION_CODES.LOLLIPOP) {
             BatteryManager batteryManager = (BatteryManager) getSystemService(BATTERY_SERVICE);
@@ -68,11 +59,14 @@ public class MainActivity extends FlutterActivity {
             batteryLevel = (intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1) * 100)
                     / intent.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
         }
-
-        return batteryLevel;
+        if (batteryLevel != -1) {
+            this.result.success(Integer.toString(batteryLevel) + "%");
+        } else {
+            this.result.error("UNAVAILABLE", "Battery level not available.", null);
+        }
     }
 
-    public void sendMessage(){
+    public void scanBarcode(){
         Intent intent = new Intent(this, DisplayMessageActivity.class);
         intent.putExtra(BAR_CODE_SCANNER, "Scan Bar Code Please...");
         this.startActivityForResult(intent,100);
