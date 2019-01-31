@@ -21,41 +21,31 @@ class HomeDrawer extends StatelessWidget {
             ),
           ),
         ),
-        ListTile(
-            leading: Icon(Icons.home),
-            title: Text('Home'),
-            onTap: () {
-              Navigator.pop(context);
-              Navigator.of(context).pushNamed('/');
-            }),
-        ListTile(
-            leading: Icon(Icons.account_balance),
-            title: Text('Accounts'),
-            onTap: () {
-              Navigator.pop(context);
-              Navigator.of(context).pushNamed('/accounts');
-            }),
-        ListTile(
-            leading: Icon(Icons.chat),
-            title: Text('Support'),
-            onTap: () {
-              Navigator.pop(context);
-              Navigator.of(context).pushNamed('/support');
-            }),
-        ListTile(
-            leading: Icon(Icons.info),
-            title: Text('About'),
-            onTap: () {
-              Navigator.pop(context);
-              Navigator.of(context).pushNamed('/about');
-            }),
-        ListTile(
-            leading: Icon(Icons.map),
-            title: Text('Map'),
-            onTap: () {
-              Navigator.pop(context);
-              Navigator.of(context).pushNamed('/map');
-            }),
+        DismissibleItem(
+            itemValue: 'Home',
+            dismissFn: onDismissed('Home'),
+            nextRoute: '/',
+            icon: Icons.home),
+        DismissibleItem(
+            itemValue: 'Accounts',
+            dismissFn: onDismissed('Accounts'),
+            nextRoute: '/accounts',
+            icon: Icons.account_balance),
+        DismissibleItem(
+            itemValue: 'Support',
+            dismissFn: onDismissed('Support'),
+            nextRoute: '/support',
+            icon: Icons.chat),
+        DismissibleItem(
+            itemValue: 'About',
+            dismissFn: onDismissed('About'),
+            nextRoute: '/about',
+            icon: Icons.info),
+        DismissibleItem(
+            itemValue: 'Map',
+            dismissFn: onDismissed('Map'),
+            nextRoute: '/map',
+            icon: Icons.map),
         Divider(),
         ListTile(
             leading: Icon(Icons.exit_to_app),
@@ -66,5 +56,48 @@ class HomeDrawer extends StatelessWidget {
             }),
       ],
     ));
+  }
+
+  onDismissed(String item) {
+    print("$item removed");
+  }
+}
+
+class DismissibleItem extends StatelessWidget {
+  final String itemValue;
+  final Function dismissFn;
+  final String nextRoute;
+  final IconData icon;
+  DismissibleItem(
+      {Key key,
+      @required this.itemValue,
+      this.nextRoute,
+      this.icon,
+      this.dismissFn})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Dismissible(
+        key: Key(itemValue),
+        background: Container(
+          color: Colors.red,
+          alignment: AlignmentDirectional.centerEnd,
+          child: Icon(
+            Icons.delete,
+            color: Colors.white,
+          ),
+        ),
+        onDismissed: dismissFn,
+        movementDuration: Duration(milliseconds: 300),
+        child: ListTile(
+            leading: !icon.hashCode.isNaN ? Icon(icon) : null,
+            title: Text(itemValue),
+            onTap: () {
+              if (nextRoute.isNotEmpty) {
+                Navigator.pop(context);
+                Navigator.of(context).pushNamed(nextRoute);
+              }
+            }));
   }
 }
