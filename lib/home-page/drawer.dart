@@ -49,6 +49,13 @@ class HomeDrawer extends StatelessWidget {
               Navigator.pop(context);
               Navigator.of(context).pushNamed('/about');
             }),
+        ListTile(
+            leading: Icon(Icons.map),
+            title: Text('Map'),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.of(context).pushNamed('/map');
+            }),
         Divider(),
         ListTile(
             leading: Icon(Icons.exit_to_app),

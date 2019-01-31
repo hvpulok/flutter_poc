@@ -3,6 +3,7 @@
 
 #import <Flutter/Flutter.h>
 #import "GeneratedPluginRegistrant.h"
+#import "GoogleMaps/GoogleMaps.h"
 
 @implementation AppDelegate
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions {
@@ -12,7 +13,7 @@
                                           methodChannelWithName:@"samples.flutter.io/battery"
                                           binaryMessenger:controller];
 
-__weak typeof(self) weakSelf = self
+__weak typeof(self) weakSelf = self;
 [batteryChannel setMethodCallHandler:^(FlutterMethodCall* call, FlutterResult result) {
   if ([@"getBatteryLevel" isEqualToString:call.method]) {
     int batteryLevel = [weakSelf getBatteryLevel];
@@ -28,6 +29,7 @@ __weak typeof(self) weakSelf = self
     result(FlutterMethodNotImplemented);
   }
 }];
+  [GMSServices provideAPIKey:@"AIzaSyAhb_pYgIboh-QU-btHR7qQrWgNHXNGhqc"];
   [GeneratedPluginRegistrant registerWithRegistry:self];
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
