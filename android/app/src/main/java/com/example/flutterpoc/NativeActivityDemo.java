@@ -20,9 +20,8 @@ public class NativeActivityDemo extends FlutterActivity {
     }
 
     public void sendResult(View view){
-        Intent data = new Intent();
-        data.putExtra("message", "Hello From Native!!!");
-        setResult(RESULT_OK, data);
-        finish();
+//        getIntent().putExtra("message", "Hello From Native!!!");
+//        setResult(RESULT_OK, getIntent());
+         finish();
     }
 }
