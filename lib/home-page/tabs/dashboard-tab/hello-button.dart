@@ -8,7 +8,7 @@ class HelloButton extends StatefulWidget {
 }
 
 class _HelloButtonState extends State<HelloButton> {
-  String _message = '?';
+  String _message = 'Say Hello To Native UI';
 
   @override
   Widget build(BuildContext context) {
