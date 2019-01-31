@@ -89,7 +89,7 @@ class DismissibleItem extends StatelessWidget {
           ),
         ),
         onDismissed: dismissFn,
-        movementDuration: Duration(seconds: 1),
+        movementDuration: Duration(milliseconds: 300),
         child: ListTile(
             leading: !icon.hashCode.isNaN ? Icon(icon) : null,
             title: Text(itemValue),

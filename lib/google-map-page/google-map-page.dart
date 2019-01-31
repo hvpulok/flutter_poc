@@ -30,7 +30,7 @@ class GoogleMapsExampleState extends State<MapPage> {
                 bearing: 270.0,
                 target: LatLng(35.227085, -80.843124),
                 tilt: 30.0,
-                zoom: 17.0,
+                zoom: 10.0,
               ),
               onMapCreated: _onMapCreated,
             ),
