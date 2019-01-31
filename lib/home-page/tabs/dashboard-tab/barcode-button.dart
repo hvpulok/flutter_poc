@@ -13,7 +13,7 @@ class BarcodeButton extends StatelessWidget {
           Container(
             width: 130.0,
             height: 130,
-            child: Icon(Icons.scanner, size: 130.0, color: Colors.white24),
+            child: Icon(Icons.scanner, size: 130.0, color: Colors.white10),
           ),
           SizedBox(
             width: 130.0,

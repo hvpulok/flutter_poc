@@ -25,13 +25,31 @@ class _BarcodePageState extends State<BarcodePage> {
         ),
         body: new Center(
           child: new Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               new Container(
-                child: new MaterialButton(
-                    onPressed: scan, child: new Text("Scan")),
+                child: new RaisedButton(
+                    color: Colors.greenAccent,
+                    child: Stack(
+                      alignment: AlignmentDirectional.center,
+                      children: <Widget>[
+                        Icon(
+                          Icons.scanner,
+                          size: 130,
+                          color: Colors.white24,
+                        ),
+                        new Text(
+                          "Scan",
+                          style: TextStyle(color: Colors.black87, fontSize: 25),
+                        )
+                      ],
+                    ),
+                    onPressed: scan),
                 padding: const EdgeInsets.all(8.0),
               ),
-              new Text(barcode),
+              new Text(barcode,
+                  style: TextStyle(color: Colors.black87, fontSize: 25)),
             ],
           ),
         ));
