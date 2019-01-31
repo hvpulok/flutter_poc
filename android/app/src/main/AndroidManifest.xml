@@ -27,8 +27,6 @@
                  until Flutter renders its first frame. It can be removed if
                  there is no splash screen (such as the default splash screen
                  defined in @style/LaunchTheme). -->
-            <meta-data android:name="com.google.android.geo.API_KEY"
-               android:value="AIzaSyAhb_pYgIboh-QU-btHR7qQrWgNHXNGhqc"/>
             <meta-data
                 android:name="io.flutter.app.android.SplashScreenUntilFirstFrame"
                 android:value="true" />
@@ -38,5 +36,11 @@
             </intent-filter>
         </activity>
         <activity android:name="com.apptreesoftware.barcodescan.BarcodeScannerActivity"/>
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data 
+                android:name="com.google.android.geo.API_KEY"
+                android:value="AIzaSyAhb_pYgIboh-QU-btHR7qQrWgNHXNGhqc"/>
     </application>
 </manifest>
