@@ -11,7 +11,7 @@ import './shared/barcode-page.dart';
 void main() => runApp(new MaterialApp(
     title: 'Flutter Starter',
     theme: new ThemeData(
-        primarySwatch: Colors.purple,
+        primarySwatch: Colors.indigo,
         scaffoldBackgroundColor: Colors.white,
         primaryColor: Colors.indigo,
         accentColor: Colors.pinkAccent,
