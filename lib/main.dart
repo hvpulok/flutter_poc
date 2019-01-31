@@ -6,6 +6,7 @@ import './about-page/about-page.dart';
 import './support-page/support-page.dart';
 import './login-page/login_page.dart';
 import './shared/camera.dart';
+import './shared/barcode-page.dart';
 
 void main() => runApp(new MaterialApp(
     title: 'Flutter Starter',
@@ -25,4 +26,5 @@ Map<String, WidgetBuilder> appRoutes = <String, WidgetBuilder>{
   '/support': (BuildContext context) => SupportPage(),
   '/login': (BuildContext context) => LoginPage(),
   '/camera': (BuildContext context) => CameraPage(),
+  '/barcode': (BuildContext context) => BarcodePage(),
 };

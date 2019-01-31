@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import './hello-button.dart';
 import './battery-button.dart';
 import './camera-button.dart';
+import './barcode-button.dart';
 
 class DashboardTab extends StatelessWidget {
   @override
@@ -15,6 +16,7 @@ class DashboardTab extends StatelessWidget {
           children: <Widget>[
             HelloButton(),
             BatteryButton(),
+            BarcodeButton(),
             CameraButton(),
             RaisedButton(
               color: Colors.purple,

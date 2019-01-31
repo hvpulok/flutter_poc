@@ -22,6 +22,7 @@ dependencies:
   font_awesome_flutter: ^8.2.0
   camera: ^0.2.9+1
   flutter_sticky_header: "^0.3.4"
+  barcode_scan: ^0.0.8
 
 dev_dependencies:
   flutter_test:
