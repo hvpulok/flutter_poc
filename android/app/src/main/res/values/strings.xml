@@ -1,0 +1,4 @@
+<resources>
+    <string name="say_hello_to_flutter">Say Hello To Flutter</string>
+    <string name="send_event_to_Flutter">Send Event to Flutter</string>
+</resources>

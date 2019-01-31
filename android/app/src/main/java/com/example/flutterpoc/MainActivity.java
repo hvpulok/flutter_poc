@@ -1,5 +1,6 @@
 package com.example.flutterpoc;
 
+import android.app.Activity;
 import android.os.Bundle;
 
 import io.flutter.app.FlutterActivity;
@@ -15,10 +16,10 @@ import android.content.IntentFilter;
 import android.os.BatteryManager;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
-import android.os.Bundle;
 
 public class MainActivity extends FlutterActivity {
-    private static final String CHANNEL = "phoenix.flutter.io/info";
+    public static Result result;
+    public static final String CHANNEL = "phoenix.flutter.io/info";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +28,11 @@ public class MainActivity extends FlutterActivity {
 
         new MethodChannel(getFlutterView(), CHANNEL).setMethodCallHandler(new MethodCallHandler() {
             @Override
-            public void onMethodCall(MethodCall call, Result result) {
+            public void onMethodCall(MethodCall call, Result _result) {
+                result = _result;
                 if (call.method.equals("hello")) {
-                    result.success("Hi from Android Native");
+                    openNativeActivity();
+                    //result.success("Hi from Android Native");
                 } 
                 // start: Battery plugin code starts here
                 else if (call.method.equals("getBatteryLevel")) {
@@ -49,6 +52,12 @@ public class MainActivity extends FlutterActivity {
         });
     }
 
+    public void openNativeActivity(){
+        Intent intent = new Intent(this, NativeActivityDemo.class);
+        intent.putExtra("message", "Hello from Flutter");
+        this.startActivityForResult(intent,100);
+    }
+
     private int getBatteryLevel() {
         int batteryLevel = -1;
         if (VERSION.SDK_INT >= VERSION_CODES.LOLLIPOP) {
@@ -62,5 +71,17 @@ public class MainActivity extends FlutterActivity {
         }
 
         return batteryLevel;
+    }
+
+    @Override
+    public void onActivityResult(int code, int resultCode, Intent data){
+        if (code == 100) {
+            if (resultCode == Activity.RESULT_OK) {
+                String barcode = data.getStringExtra("message");
+                this.result.success(barcode);
+            } else {
+                this.result.success("Message ERR!");
+            }
+        }
     }
 }
