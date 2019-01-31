@@ -10,6 +10,7 @@ import './shared/barcode-page.dart';
 import './google-map-page/google-map-page.dart';
 
 void main() => runApp(new MaterialApp(
+    debugShowCheckedModeBanner: false,
     title: 'Flutter Starter',
     theme: new ThemeData(
         primarySwatch: Colors.indigo,
