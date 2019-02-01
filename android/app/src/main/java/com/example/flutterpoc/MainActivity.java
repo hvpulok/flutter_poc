@@ -55,7 +55,8 @@ public class MainActivity extends FlutterActivity {
     public void openNativeActivity(){
         Intent intent = new Intent(this, NativeActivityDemo.class);
         intent.putExtra("message", "Hello from Flutter");
-        this.startActivityForResult(intent,100);
+        // this.startActivityForResult(intent,1000000);
+        this.startActivity(intent);
     }
 
     private int getBatteryLevel() {
@@ -73,15 +74,15 @@ public class MainActivity extends FlutterActivity {
         return batteryLevel;
     }
 
-    @Override
-    public void onActivityResult(int code, int resultCode, Intent data){
-        if (code == 100) {
-            if (resultCode == Activity.RESULT_OK) {
-                String barcode = data.getStringExtra("message");
-                this.result.success(barcode);
-            } else {
-                this.result.success("Message ERR!");
-            }
-        }
-    }
+//    @Override
+//    public void onActivityResult(int code, int resultCode, Intent data){
+//        if (code == 1000000) {
+//            if (resultCode == Activity.RESULT_OK) {
+//                String barcode = data.getStringExtra("message");
+//                this.result.success(barcode);
+//            } else {
+//                this.result.success("Message ERR!");
+//            }
+//        }
+//    }
 }
