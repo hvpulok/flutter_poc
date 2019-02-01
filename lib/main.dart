@@ -8,6 +8,7 @@ import './login-page/login_page.dart';
 import './shared/camera.dart';
 import './shared/barcode-page.dart';
 import './google-map-page/google-map-page.dart';
+import './gesture-page/gesture-page.dart';
 
 void main() => runApp(new MaterialApp(
     debugShowCheckedModeBanner: false,
@@ -29,5 +30,6 @@ Map<String, WidgetBuilder> appRoutes = <String, WidgetBuilder>{
   '/login': (BuildContext context) => LoginPage(),
   '/camera': (BuildContext context) => CameraPage(),
   '/barcode': (BuildContext context) => BarcodePage(),
-  '/map': (BuildContext context) => MapPage()
+  '/map': (BuildContext context) => MapPage(),
+  '/gesture': (BuildContext context) => GesturePageDemo()
 };

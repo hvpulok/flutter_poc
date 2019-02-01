@@ -46,6 +46,11 @@ class HomeDrawer extends StatelessWidget {
             dismissFn: onDismissed('Map'),
             nextRoute: '/map',
             icon: Icons.map),
+        DismissibleItem(
+            itemValue: 'Gesture',
+            dismissFn: onDismissed('Gesture'),
+            nextRoute: '/gesture',
+            icon: Icons.gesture),
         Divider(),
         ListTile(
             leading: Icon(Icons.exit_to_app),
