@@ -13,8 +13,6 @@
         android:name="io.flutter.app.FlutterApplication"
         android:icon="@mipmap/ic_launcher"
         android:label="flutter_poc">
-        <activity android:name=".NativeActivityDemo"  android:theme="@style/LaunchTheme"
-            android:parentActivityName=".MainActivity"></activity>
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density"
@@ -39,8 +37,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name="com.apptreesoftware.barcodescan.BarcodeScannerActivity" />
+        <activity android:name=".NativeActivityDemo"  android:theme="@style/LaunchTheme"
+            android:parentActivityName=".MainActivity"></activity>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAhb_pYgIboh-QU-btHR7qQrWgNHXNGhqc" />
